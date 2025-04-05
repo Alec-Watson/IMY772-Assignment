@@ -14,4 +14,3 @@ Error Handling / Edge Cases
 o	Non-hexadecimal inputs are provided.
 o	Inputs exceed 2 digits.
 o	Division by zero is attempted.
-o	Division by zero is attempted.
