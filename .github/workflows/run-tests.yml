@@ -38,7 +38,7 @@ jobs:
           node-version: 20.12.1
 
       - name: Install frontend dependencies
-        run: cd frontend && npm ci
+        run: cd frontend/calc && npm ci
 
       - name: Run Vitest
-        run: cd frontend && npm run test
+        run: cd frontend/calc && npm run test
