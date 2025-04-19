@@ -35,37 +35,40 @@ const calculate = async () => {
       </div>
   
       <div class="buttons">
-        <button @click="append('A')">A</button>
-        <button @click="append('B')">B</button>
-        <button @click="append('C')">C</button>
-        <button @click="append('D')">D</button>
-        <button @click="append('E')">E</button>
-        <button @click="append('F')">F</button>
+
+        <button @click="append('A')" data-test="btn-A">A</button>
+        <button @click="append('B')" data-test="btn-B">B</button>
+        <button @click="append('C')" data-test="btn-C">C</button>
+        <button @click="append('D')" data-test="btn-D">D</button>
+        <button @click="append('E')" data-test="btn-E">E</button>
+        <button @click="append('F')" data-test="btn-F">F</button>
   
-        <button @click="append('0')">0</button>
-        <button @click="append('1')">1</button>
-        <button @click="append('2')">2</button>
-        <button @click="append('3')">3</button>
-        <button @click="append('4')">4</button>
-        <button @click="append('5')">5</button>
-        <button @click="append('6')">6</button>
-        <button @click="append('7')">7</button>
-        <button @click="append('8')">8</button>
-        <button @click="append('9')">9</button>
+        <button @click="append('0')" data-test="btn-0">0</button>
+        <button @click="append('1')" data-test="btn-1">1</button>
+        <button @click="append('2')" data-test="btn-2">2</button>
+        <button @click="append('3')" data-test="btn-3">3</button>
+        <button @click="append('4')" data-test="btn-4">4</button>
+        <button @click="append('5')" data-test="btn-5">5</button>
+        <button @click="append('6')" data-test="btn-6">6</button>
+        <button @click="append('7')" data-test="btn-7">7</button>
+        <button @click="append('8')" data-test="btn-8">8</button>
+        <button @click="append('9')" data-test="btn-9">9</button>
   
-        <button @click="append('+')">+</button>
-        <button @click="append('-')">-</button>
-        <button @click="append('*')">*</button>
-        <button @click="append('/')">/</button>
+
+        <button @click="append('+')" data-test="btn-plus">+</button>
+        <button @click="append('-')" data-test="btn-minus">-</button>
+        <button @click="append('*')" data-test="btn-mul">*</button>
+        <button @click="append('/')" data-test="btn-div">/</button>
       </div>
   
       <div class="control-buttons">
-        <button class="clear" @click="clear">Clear</button>
-        <button class="del" @click="delChar">DEL</button>
-        <button class="equals" @click="calculate">=</button>
+        <button class="clear" @click="clear" data-test="btn-clear">Clear</button>
+        <button class="del" @click="delChar" data-test="btn-del">DEL</button>
+        <button class="equals" @click="calculate" data-test="btn-equals">=</button>
       </div>
     </div>
   </template>
+  
   
 
 <style scoped>
