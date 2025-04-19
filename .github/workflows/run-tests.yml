@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  test:
+  backend-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,8 +19,26 @@ jobs:
         with:
           node-version: 20.12.1
 
-      - name: Install dependencies
+      - name: Install backend dependencies
         run: cd backend && npm install
 
-      - name: Run tests
-        run: cd backend && npm test 
+      - name: Run backend tests
+        run: cd backend && npm test
+
+  vitest-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.12.1
+
+      - name: Install frontend dependencies
+        run: cd frontend/calc && npm ci
+
+      - name: Run Vitest
+        run: cd frontend/calc && npm run test
