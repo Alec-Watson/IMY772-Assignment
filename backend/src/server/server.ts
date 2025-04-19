@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { add, subtract, multiply, divide } from '../calculator/calculator';
 import { Request, Response } from 'express';
+import cors from 'cors';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,7 +28,10 @@ interface OperationResult {
 }
 
 app.use(bodyParser.json());
-
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true,
+}));
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hexadecimal Calculator API - Use POST /calculate with operation, a, and b parameters or POST /calculate/complex with an expression');
