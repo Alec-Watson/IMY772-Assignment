@@ -1,6 +1,6 @@
 # Root-level ignores
 .DS_Store
-.pem
+*.pem
 .env
 *.log
 *.tsbuildinfo
