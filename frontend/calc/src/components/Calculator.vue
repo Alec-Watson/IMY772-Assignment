@@ -21,7 +21,7 @@ const calculate = async () => {
     const res = await fetch(`http://localhost:3000/calculate/complex?expression=${encodeURIComponent(expression.value)}`)
     const data = await res.json()
     result.value = data.result||data.error
-  } catch (err) {
+  } catch (err:any) {
     result.value = err
   }
 }

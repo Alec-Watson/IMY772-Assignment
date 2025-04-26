@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { add, subtract, multiply, divide } from '../calculator/calculator';
 import { Request, Response } from 'express';
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,13 +30,12 @@ interface OperationResult {
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
   credentials: true,
 }));
+// Serve static files from frontend
+app.use(express.static(path.join(__dirname, '../../public')));
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hexadecimal Calculator API - Use POST /calculate with operation, a, and b parameters or POST /calculate/complex with an expression');
-});
 
 
 app.post('/calculate', (req: any, res: any) => {
@@ -278,6 +278,9 @@ function evaluateComplexExpression(expression: string): OperationResult {
     steps
   };
 }
+app.get('/*catch-all', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/index.html'));
+});
 
 // Start the server
 app.listen(PORT, () => {
